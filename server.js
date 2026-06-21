@@ -13,7 +13,9 @@ const userRoutes = require("./routes/userRoutes");
 
 const app = express();
 
-connectDB();
+connectDB().catch((error) => {
+    console.error("MongoDB connection failed:", error.message);
+});
 
 app.use(morgan("dev"));
 app.use(cors());
