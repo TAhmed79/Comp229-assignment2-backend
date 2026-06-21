@@ -1,5 +1,5 @@
 const createError = require("http-errors");
-const Project = require("../models/Project");
+const Project = require("../models/project");
 
 const formatProject = (project) => {
     const obj = project.toObject();

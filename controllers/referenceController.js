@@ -1,5 +1,5 @@
 const createError = require("http-errors");
-const Reference = require("../models/Reference");
+const Reference = require("../models/reference");
 
 const formatReference = (reference) => {
     const obj = reference.toObject();
