@@ -1,5 +1,5 @@
 const createError = require("http-errors");
-const Service = require("../models/Service");
+const Service = require("../models/service");
 
 const formatService = (service) => {
     const obj = service.toObject();
