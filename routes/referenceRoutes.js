@@ -1,4 +1,5 @@
 const express = require("express");
+const authMiddleware = require("../middleware/authMiddleware");
 const {
     getAllReferences,
     getReferenceById,
@@ -11,8 +12,8 @@ const router = express.Router();
 
 router.get("/", getAllReferences);
 router.get("/:id", getReferenceById);
-router.post("/", addReference);
-router.put("/:id", updateReference);
-router.delete("/:id", deleteReference);
+router.post("/", authMiddleware, addReference);
+router.put("/:id", authMiddleware, updateReference);
+router.delete("/:id", authMiddleware, deleteReference);
 
 module.exports = router;

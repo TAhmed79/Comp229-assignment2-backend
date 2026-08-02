@@ -1,4 +1,5 @@
 const express = require("express");
+const authMiddleware = require("../middleware/authMiddleware");
 const {
     getAllServices,
     getServiceById,
@@ -11,8 +12,8 @@ const router = express.Router();
 
 router.get("/", getAllServices);
 router.get("/:id", getServiceById);
-router.post("/", addService);
-router.put("/:id", updateService);
-router.delete("/:id", deleteService);
+router.post("/", authMiddleware, addService);
+router.put("/:id", authMiddleware, updateService);
+router.delete("/:id", authMiddleware, deleteService);
 
 module.exports = router;
